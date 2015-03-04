@@ -24,8 +24,14 @@ public class MainActivity extends Activity {
         tvGreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "This is from main!");
+                GreenFragment greenFragment = new GreenFragment();
+                greenFragment.setArguments(bundle);
+
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new GreenFragment())
+                        .replace(R.id.fragment_container, greenFragment)
+                        .addToBackStack("")
                         .commit();
             }
         });
@@ -33,6 +39,14 @@ public class MainActivity extends Activity {
         tvBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "this is from main going to blue");
+                BlueFragment blueFragment = new BlueFragment();
+                blueFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, blueFragment)
+                        .addToBackStack("")
+                        .commit();
 
             }
         });
@@ -40,6 +54,14 @@ public class MainActivity extends Activity {
         tvRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "this is from main going to red");
+                RedFragment redFragment = new RedFragment();
+                redFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, redFragment)
+                        .addToBackStack("")
+                        .commit();
 
             }
         });
